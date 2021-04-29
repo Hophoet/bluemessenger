@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Button, Text, TouchableOpacity} from 'react-native';
 import PickerModal from 'react-native-picker-modal-view';
+import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
 
@@ -34,6 +35,7 @@ const  Modal = (props:Props) =>  {
 							<Text style={styles.selectedItem}>
 								{(selected.Name)?selected.Name:props.defaultLabel}
 							</Text>	
+							<Icon name='chevron-down-outline' size={26} color='white'/>
 						</TouchableOpacity>
 					}
 					onSelected={onSelected}
@@ -69,6 +71,9 @@ const styles = StyleSheet.create({
 		borderColor:'white',
 		height:50,
 		justifyContent:'center',
+		flexDirection:'row',
+		justifyContent:'space-between',
+		
 	},
 	selectedItem:{
 		color:'white',
