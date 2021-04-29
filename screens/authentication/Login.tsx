@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, TextInput, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
 import PickerModal from '../../components/modals/PickerModal';
+import PhoneNumberVerificationModal from '../../components/modals/PhoneNumberVerificationModal';
 import Icon from "react-native-vector-icons/Ionicons";
 
 type LoginProps = {
@@ -9,6 +10,7 @@ type LoginProps = {
 type LoginState = {
 	countries:any[],
 	phoneNumberCodes:any[],
+	phoneNumberVerificationModalIsVisible:bool
 	
 }
 
@@ -17,14 +19,28 @@ export default class Login extends React.Component<LoginProps, LoginState>{
 		super(props);
 		this.state = {
 			countries:require('../../data/countries.json'),
-			phoneNumberCodes:require('../../data/phoneNumberCodes.json')
+			phoneNumberCodes:require('../../data/phoneNumberCodes.json'),
+			phoneNumberVerificationModalIsVisible:false
 		}
 	}
 
+	verifyPhoneNumber = () => {
+		console.log('verify')
+		this.setState({phoneNumberVerificationModalIsVisible:true});
+	}
+
+	setVisible = (value) => {
+		this.setState({phoneNumberVerificationModalIsVisible:value});
+	}
+
 	render(){
+		console.log("modal visible", this.state.phoneNumberVerificationModalIsVisible)
 	
 		return (
 			<View style={styles.container}>
+				<PhoneNumberVerificationModal 
+					setVisible={this.setVisible}
+					visible={this.state.phoneNumberVerificationModalIsVisible}/>
 				<ImageBackground 
 					style={styles.containerImage}
 					source={require('../../assets/login-bg.jpg')}>
@@ -51,6 +67,7 @@ export default class Login extends React.Component<LoginProps, LoginState>{
 						<TouchableOpacity 
 							style={styles.nextButton}
 							activeOpacity={.5}
+							onPress={this.verifyPhoneNumber}
 						>
 							<Text style={styles.nextLabel}>Suivant</Text>
 						</TouchableOpacity>
