@@ -54,6 +54,29 @@ export default class Login extends React.Component<LoginProps, LoginState>{
 						>
 							<Text style={styles.nextLabel}>Suivant</Text>
 						</TouchableOpacity>
+						<View style={styles.authMethodsContainer}>
+							<TouchableOpacity
+								style={styles.authMethod}
+								activeOpacity={.5}
+							>
+								<Icon name='logo-twitter' size={30} color='white'/>
+								
+							</TouchableOpacity>
+							<TouchableOpacity
+								style={styles.authMethod}
+								activeOpacity={.5}
+							>
+								<Icon name='logo-facebook' size={30} color='white'/>
+								
+							</TouchableOpacity>
+							<TouchableOpacity
+								style={styles.authMethod}
+								activeOpacity={.5}
+							>
+								<Icon name='logo-google' size={30} color='white'/>
+								
+							</TouchableOpacity>
+						</View>
 					</View>
 	
 				</ImageBackground>
@@ -113,11 +136,25 @@ const styles = StyleSheet.create({
 		paddingHorizontal:90,
 		justifyContent:'center',
 		alignItems:'center',
-		borderRadius:40
+		borderRadius:40,
+		marginBottom:20,
 	},
 	nextLabel:{
 		color:'white',
 		fontSize:20
+	},
+	authMethodsContainer:{
+		//backgroundColor:'red',
+		flexDirection:'row',
+		justifyContent:'space-between',
+		alignItems:'center'
+	},
+	authMethod:{
+		backgroundColor:'transparent',
+		padding:20,
+		borderColor:'white',
+		borderWidth:1,
+		borderRadius:80,
 	}
 	
 
