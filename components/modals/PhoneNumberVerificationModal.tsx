@@ -13,6 +13,12 @@ const  PhoneNumberVerificationModal = (props:Props) =>  {
 			setModalVisible(props.visible)	
 		})
 
+
+		const _closeModal = () => {
+			setClickedOK(false);
+			props.setVisible(false)
+		}
+
 		const _renderContent = () => {
 			if(!clickedOK){
 				return (
@@ -98,7 +104,7 @@ const  PhoneNumberVerificationModal = (props:Props) =>  {
 							<View style={styles.closeButtonContainer}>
 								<TouchableOpacity
 									style={styles.closeButton}
-									onPress={() => props.setVisible(false)}
+									onPress={() => _closeModal()}
 								>
 									<Icon name='close' size={30} color='white' />
 								</TouchableOpacity>
