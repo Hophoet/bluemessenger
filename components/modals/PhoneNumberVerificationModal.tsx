@@ -3,12 +3,22 @@ import {StyleSheet, Modal, View, TextInput, Button, Text, Dimensions, TouchableO
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
-
 }
 
 const  PhoneNumberVerificationModal = (props:Props) =>  {
 		const [modalVisible, setModalVisible] = useState(false);
 		const [clickedOK, setClickedOK] = useState(false);
+		let number1:number;
+		let number2:number;
+		let number3:number;
+		let number4:number;
+		let number5:number;
+		const number1Ref = React.useRef();
+		const number2Ref = React.useRef();
+		const number3Ref = React.useRef();
+		const number4Ref = React.useRef();
+		const number5Ref = React.useRef();
+
 		useEffect( () => {
 			setModalVisible(props.visible)	
 		})
@@ -17,6 +27,20 @@ const  PhoneNumberVerificationModal = (props:Props) =>  {
 		const _closeModal = () => {
 			setClickedOK(false);
 			props.setVisible(false)
+		}
+		const _validate = () => {
+			if(!isNaN(number1) && 
+				!isNaN(number2) && 
+				!isNaN(number3) && 
+				!isNaN(number4) && 
+				!isNaN(number5)
+			){
+				//console.log('valide form')
+				_closeModal()
+			}
+			else{
+				alert('Entrer votre code de verification')
+			}
 		}
 
 		const _renderContent = () => {
@@ -41,49 +65,61 @@ const  PhoneNumberVerificationModal = (props:Props) =>  {
 					<Text style={styles.secondContentTitle}>Code de vérification</Text>
 					<View style={styles.textInputsContainer}>
 						<TextInput
+							autoFocus={true}
+							ref={number1Ref}
 							style={styles.textInput}
-							placeholder='0'
 							placeholderTextColor='#1597bb'
 							keyboardType="numeric"
 							maxLength={1}
 							textAlign='center'
+							onChangeText={text => number1 = parseInt(text)}
+							onSubmitEditing={() => number2Ref.current.focus()}
 						/>
 						<TextInput
+							ref={number2Ref}
 							style={styles.textInput}
 							placeholderTextColor='#1597bb'
 							keyboardType="numeric"
-							placeholder='0'
 							textAlign='center'
 							maxLength={1}
+							onChangeText={text => number2 = parseInt(text)}
+							onSubmitEditing={() => number3Ref.current.focus()}
 						/>
 						<TextInput
+							ref={number3Ref}
 							style={styles.textInput}
-							placeholder='0'
 							textAlign='center'
 							placeholderTextColor='#1597bb'
 							keyboardType="numeric"
 							maxLength={1}
+							onChangeText={text => number3 = parseInt(text)}
+							onSubmitEditing={() => number4Ref.current.focus()}
 						/>
 						<TextInput
+							ref={number4Ref}
 							style={styles.textInput}
-							placeholder='0'
 							textAlign='center'
 							placeholderTextColor='#1597bb'
 							keyboardType="numeric"
 							maxLength={1}
+							onChangeText={text => number4 = parseInt(text)}
+							onSubmitEditing={() => number5Ref.current.focus()}
 						/>
 						<TextInput
+							ref={number5Ref}
 							style={styles.textInput}
-							placeholder='0'
 							textAlign='center'
 							placeholderTextColor='#1597bb'
 							keyboardType="numeric"
 							maxLength={1}
+							onChangeText={text => number5 = parseInt(text)}
+							onSubmitEditing={() => _validate()}
+							returnKeyType='send'
 						/>
 					</View>
 					<TouchableOpacity
 						style={styles.validateButton}
-						onPress={() => null}
+						onPress={() => _validate()}
 					>
 						<Text style={styles.validate}>Valider</Text>
 					</TouchableOpacity>
