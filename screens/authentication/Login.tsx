@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View, TextInput, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
 import PickerModal from '../../components/modals/PickerModal';
+import Icon from "react-native-vector-icons/Ionicons";
 
 type LoginProps = {
 
@@ -29,7 +30,7 @@ export default class Login extends React.Component<LoginProps, LoginState>{
 					source={require('../../assets/login-bg.jpg')}>
 					<View style={styles.header}>
 						<Text style={[styles.welcomeLabel, styles.label]}>WELCOME</Text>
-						<Text style={[styles.logoLabel, styles.label]}>LOGO</Text>
+						<Icon name='chatbubble-ellipses-outline' size={70} color='white'/>
 						<Text style={[styles.appNameLabel, styles.label]}>BLUE MESSENGER</Text>
 					</View>
 					<View style={styles.form}>
