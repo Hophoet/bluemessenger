@@ -27,7 +27,12 @@ const  MessageItem = (props:Props) =>  {
 						:styles.rMessageContainer
 
 				]}>
-					<Text>{props.message.text}</Text>
+					<Text
+						style={(props.message.author!)
+							?styles.sMessage
+							:styles.rMessage
+						}
+					>{props.message.text}</Text>
 				</View>
 			</View>
 
@@ -73,10 +78,16 @@ const styles = StyleSheet.create({
 		borderTopLeftRadius:20,
 		borderTopRightRadius:20
 	},
+	sMessage:{
+		color:'black',
+	},
 	rMessageContainer:{
 		backgroundColor:'#1597bb',
 		borderBottomRightRadius:20,
 		borderTopLeftRadius:20,
 		borderTopRightRadius:20
+	},
+	rMessage:{
+		color:'white',
 	}
 })
