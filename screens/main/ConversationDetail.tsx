@@ -1,11 +1,12 @@
 
 
 import React from 'react';
-import {Text, View, TextInput, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, Button, Dimensions, View, TextInput, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import Messages from '../../components/Messages';
 
 type Props = {
+	navigation:any
 }
 
 type State = {
@@ -14,7 +15,40 @@ type State = {
 export default class ConversationDetail extends React.Component<Props, State>{
 	constructor(props:Props){
 		super(props);
+		this._customNav();
 	}
+
+	_customNav = () => {
+		this.props.navigation.setOptions({
+		  headerRight: () => (
+			<View style={styles.headerRightContainer}>
+				<View style={styles.statusDot}/>
+				<TouchableOpacity style={styles.headerButton}>
+					<Icon name='call' size={25} color='white'/>
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.headerButton}>
+					<Icon name='search' size={25} color='white'/>
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.headerButton}>
+					<Icon name='ellipsis-vertical' size={25} color='white'/>
+				</TouchableOpacity>
+			</View>
+		  ),
+		  title:this.props.route.params.conversation.userPhoneNumber,
+		  headerTintColor:'white',
+          headerStyle: {
+            backgroundColor: '#1597bb',
+          },
+		  headerLeftStyle:{color:'white'},
+
+		
+		});
+
+	}
+
+	
+	
+
 
 
 
@@ -45,7 +79,7 @@ export default class ConversationDetail extends React.Component<Props, State>{
 	}
 }
 
-
+const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
 	container:{
 		flex:1,
@@ -82,6 +116,23 @@ const styles = StyleSheet.create({
 		justifyContent:'center',
 		alignItems:'center',
 		marginHorizontal:5,
+	},
+	headerRightContainer:{
+		flexDirection:'row',
+		justifyContent:'center',
+		alignItems:'center',
+	},
+	headerButton:{
+		//backgroundColor:'red',
+		padding:5,
+		marginRight:5,
+	},
+	statusDot:{
+		width:width/25,
+		height:width/25,
+		backgroundColor:'green',
+		borderRadius:80,
+		marginRight:5
 	}
 
 })
