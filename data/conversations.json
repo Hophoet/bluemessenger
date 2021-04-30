@@ -4,10 +4,13 @@
 	userPhoneNumber:'+334 83 83 8383 3',
 	profile:'',
 	messages:[
-		{ author:true, text:'hello bro,'},
-		{ author:false, text:'hello,'},
-		{ author:true, text:'how, how ljd flskdfj sdfkjs ldfkjsd flsdfj'},
+		{ author:true, text:'hello bro how was your day, i need to talk to you about.. ', id:3},
+		{ author:false, text:'In this article we are going to learn the basics of styling a component in React Native using Flexbox. If you have already used Flexbox for web with CSS, the same concepts are used in React Native as well. There are some minute differences between the both.', id:23},
+		{ author:true, text:'how, how ljd flskdfj sdfkjs ldfkjsd flsdfj In this article we are going to learn the basics of styling a component in React Native using Flexbox. If you have already used Flexbox for web with CSS, the same concepts are used in React Native as well. There are some minute differences between the both.', id:322},
 
+		{ author:false, text:' component in React Native using Flexbox. If you have already used Flexbox for web with CSS, the same concepts are used in React Native as well. There are some minute differences between the both.', id:3483},
+		{ author:true, text:'with CSS, the same concepts are used in React Native as well. There are some minute differences between the both.', id:348},
+		{ author:false, text:'with CSS, the same concepts are used in React Native as well. There are some minute differences between the both.', id:3488},
 	]
 },
 { 
@@ -15,9 +18,9 @@
 	userPhoneNumber:'+99 83 83 8383 3',
 	profile:'',
 	messages:[
-		{ author:true, text:'bro,'},
-		{ author:false, text:'hello,'},
-		{ author:true, text:'how,'},
+		{ author:true, text:'bro,', id:2323},
+		{ author:false, text:'hello,', id:11},
+		{ author:true, text:'how,', id:0},
 
 	]
 },
@@ -26,9 +29,9 @@
 	userPhoneNumber:'+00 83 83 8383 3',
 	profile:'',
 	messages:[
-		{ author:true, text:'hel,'},
-		{ author:false, text:'hi,'},
-		{ author:true, text:'how,'},
+		{ author:true, text:'hel,', id:43},
+		{ author:false, text:'hi,', id:7},
+		{ author:true, text:'how,', id:8},
 
 	]
 },
