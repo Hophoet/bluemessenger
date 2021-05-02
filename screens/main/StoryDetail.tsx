@@ -57,20 +57,94 @@ export default class StoryDetail extends React.Component<Props, State>{
 					ref='scroll'
 					horizontal={true}
 					style={styles.scrollViewContainer}>
-				<View style={styles.imageContainer}>
-					<Image 
-						resizeMode='contain'
+					<ImageBackground 
 						style={styles.image} 
 						source={require('../../assets/login-bg.jpg')}>
-					</Image>
-				</View>
-				<View style={[styles.imageContainer, {backgroundColor:'blue'}]}>
-					<Image 
-						resizeMode='center'
+						<View style={styles.statusHeader}>
+							<View style={styles.infosContainer}>
+								<Icon name='eye' color='white' size={25}/>
+								<Text style={styles.info}>Views</Text>
+							</View>
+							<View style={styles.infosContainer}>
+								<Icon name='chatbox' color='white' size={25}/>
+								<Text style={styles.info}>Views</Text>
+							</View>
+						</View>
+						<View style={styles.statusContent}>
+							<Text style={styles.statusText}>On sait depuis longtemps que travailler avec du tet lisible</Text>
+						</View>
+						<View style={styles.statusFooter}>
+							<View style={styles.statusScrollIndicatorContainer}>
+								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
+								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
+								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
+							</View>
+							<View style={styles.statusIconsContainer}>
+								<Text style={styles.statusIcon}>☺️</Text>
+								<Text style={styles.statusIcon}>😆</Text>
+								<Text style={styles.statusIcon}>😍</Text>
+							</View>
+							<View style={styles.statusActionsContainer}>
+								<TouchableOpacity style={styles.statusActionContainer}>
+									<View style={styles.statusActionIcon}>
+										<Icon name='chatbox' color='gray' size={20}/>
+									</View>
+									<Text style={styles.statusActionText}>Repondre</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={styles.statusActionContainer}>
+									<View style={styles.statusActionIcon}>
+										<Icon name='chatbox' color='gray' size={20}/>
+									</View>
+									<Text style={styles.statusActionText}>Commenter</Text>
+								</TouchableOpacity>
+									
+							</View>
+						</View>
+					</ImageBackground>
+					<ImageBackground 
 						style={styles.image} 
 						source={require('../../assets/login-bg.jpg')}>
-					</Image>
-				</View>
+						<View style={styles.statusHeader}>
+							<View style={styles.infosContainer}>
+								<Icon name='eye' color='white' size={25}/>
+								<Text style={styles.info}>Views</Text>
+							</View>
+							<View style={styles.infosContainer}>
+								<Icon name='chatbox' color='white' size={25}/>
+								<Text style={styles.info}>Views</Text>
+							</View>
+						</View>
+						<View style={styles.statusContent}>
+							<Text style={styles.statusText}>On sait depuis longtemps que travailler avec du tet lisible</Text>
+						</View>
+						<View style={styles.statusFooter}>
+							<View style={styles.statusScrollIndicatorContainer}>
+								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
+								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
+								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
+							</View>
+							<View style={styles.statusIconsContainer}>
+								<Text style={styles.statusIcon}>☺️</Text>
+								<Text style={styles.statusIcon}>😆</Text>
+								<Text style={styles.statusIcon}>😍</Text>
+							</View>
+							<View style={styles.statusActionsContainer}>
+								<TouchableOpacity style={styles.statusActionContainer}>
+									<View style={styles.statusActionIcon}>
+										<Icon name='chatbox' color='gray' size={20}/>
+									</View>
+									<Text style={styles.statusActionText}>Repondre</Text>
+								</TouchableOpacity>
+								<TouchableOpacity style={styles.statusActionContainer}>
+									<View style={styles.statusActionIcon}>
+										<Icon name='chatbox' color='gray' size={20}/>
+									</View>
+									<Text style={styles.statusActionText}>Commenter</Text>
+								</TouchableOpacity>
+									
+							</View>
+						</View>
+					</ImageBackground>
 				</ScrollView>
 			</View>
 		)
@@ -82,11 +156,6 @@ const styles = StyleSheet.create({
 	container:{
 		flex:1,
 	},
-	imageContainer:{
-		flex:1,
-		justifyContent:'center',
-		alignItems:'center',
-	},
 	image:{
 		width:width,
 		height:height,
@@ -96,20 +165,6 @@ const styles = StyleSheet.create({
 	},
 	messagesContainer:{
 		flex:1,
-	},
-	formContainer:{
-		flexDirection:'row',
-		//backgroundColor:'red',
-		justifyContent:'center',
-		//alignItems:'center',
-		paddingVertical:10,
-	},
-	textInputContainer:{
-		borderColor:'#1597bb',
-		borderWidth:StyleSheet.hairlineWidth,
-		flex:1,
-		marginHorizontal:5,
-		borderRadius:5,
 	},
 	fButton:{
 		backgroundColor:'white',
@@ -137,10 +192,71 @@ const styles = StyleSheet.create({
 		padding:5,
 		marginRight:5,
 	},
-	statusDot:{
-		width:width/25,
-		height:width/25,
-		backgroundColor:'green',
-
-}
+	statusHeader:{ 
+		//backgroundColor:'red',
+		flex:1,
+		paddingTop:10
+	},
+	statusContent:{ 
+		//backgroundColor:'blue',
+		flex:4,
+		justifyContent:'center',
+		alignItems:'center'
+	},
+	statusText:{
+		color:'white',
+		textAlign:'center',
+		fontSize:30,
+		opacity:.7,
+	},
+	statusFooter:{
+		//backgroundColor:'yellow',
+		flex:3,
+	},
+	infosContainer:{
+		//backgroundColor:'green',
+		flexDirection:'row',
+		alignSelf:'flex-end',
+		paddingRight:50,
+		opacity:.7
+	},
+	info:{
+		color:'white',
+		paddingHorizontal:5
+		
+	},
+	statusScrollIndicatorContainer:{
+		//backgroundColor:'red',
+		flexDirection:'row',
+		opacity:.7,
+		alignSelf:'center',
+	},
+	statusIconsContainer:{
+		flexDirection:'row',
+		alignSelf:'center',
+	},
+	statusIcon:{
+		fontSize:40,
+	},
+	statusActionsContainer:{
+		//backgroundColor:'red',
+		flexDirection:'row',
+		justifyContent:'space-between',
+		paddingHorizontal:20,
+		opacity:.8,
+	},
+	statusActionContainer:{
+		//backgroundColor:'green',
+		flexDirection:'row',
+		alignItems:'center',
+	},
+	statusActionText:{
+		color:'white',
+		padding:5,
+	},
+	statusActionIcon:{
+		backgroundColor:'white',
+		borderRadius:90,
+		padding:5,
+	},
 })
