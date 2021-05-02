@@ -6,6 +6,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Conversations from '../screens/main/Conversations';
 import ConversationDetail from '../screens/main/ConversationDetail';
+import Stories from '../screens/main/Stories';
+import StoryDetail from '../screens/main/StoryDetail';
 
 const Stack = createStackNavigator();
 
@@ -20,4 +22,15 @@ function App() {
   );
 }
 
-export default App;
+
+function Story() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Stories" component={Stories} />
+        <Stack.Screen name="StoryDetail" component={StoryDetail} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+export default Story;
