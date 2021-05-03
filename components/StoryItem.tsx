@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 import {StyleSheet, Image, View, Text, Dimensions, TouchableOpacity} from 'react-native';
 
 type Props = {
+	navigate:any,
+	story:any,
 }
 
 const  StoryItem = (props:Props) =>  {
@@ -21,7 +23,7 @@ const  StoryItem = (props:Props) =>  {
 				</View>
 				<View style={styles.column2}>
 					<Text style={styles.username}>{props.story.user}</Text>
-					<Text style={styles.date}>I y a 2h</Text>
+					<Text >I y a 2h</Text>
 				</View>
 
 			</TouchableOpacity>

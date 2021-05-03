@@ -7,7 +7,8 @@ import StoryDetailItem from '../../components/StoryDetailItem';
 import StoryPaginator from '../../components/StoryPaginator';
 
 type Props = {
-	navigation:any
+	navigation:any,
+	route:any,
 }
 
 type State = {
@@ -16,6 +17,9 @@ type State = {
 }
 
 export default class StoryDetail extends React.Component<Props, State>{
+	scrollX:any;
+	slidesRef:any;
+	viewConfig:any;
 	constructor(props:Props){
 		super(props);
 		this._customNav();

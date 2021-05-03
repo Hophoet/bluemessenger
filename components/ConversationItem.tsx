@@ -4,6 +4,8 @@ import {StyleSheet, Image, View, Text, Dimensions, TouchableOpacity} from 'react
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
+	navigate:any,
+	conversation:any,
 }
 
 const  ConversationItem = (props:Props) =>  {
@@ -22,11 +24,11 @@ const  ConversationItem = (props:Props) =>  {
 				</View>
 				<View style={styles.column2}>
 					<Text style={styles.phoneNumber}>{props.conversation.userPhoneNumber}</Text>	
-					<Text numberOfLines={1} style={styles.message}>{props.conversation.messages[props.conversation.messages.length-1].text}</Text>	
+					<Text numberOfLines={1} >{props.conversation.messages[props.conversation.messages.length-1].text}</Text>	
 				</View>
 				<View style={styles.column3}>
 					<Icon name='ellipsis-vertical' color='gray' size={20}/>
-					<Text style={styles.data}>00:44</Text>	
+					<Text >00:44</Text>	
 				</View>
 			</TouchableOpacity>
 

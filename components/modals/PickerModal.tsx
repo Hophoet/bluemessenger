@@ -4,8 +4,10 @@ import PickerModal from 'react-native-picker-modal-view';
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
-
-}
+	data:[],
+	style:any,
+	defaultLabel:string
+};
 
 const  Modal = (props:Props) =>  {
 		const [selectedItem, setSelectedItem] = useState(null);
@@ -70,7 +72,6 @@ const styles = StyleSheet.create({
 		borderBottomWidth:2,
 		borderColor:'white',
 		height:50,
-		justifyContent:'center',
 		flexDirection:'row',
 		justifyContent:'space-between',
 		

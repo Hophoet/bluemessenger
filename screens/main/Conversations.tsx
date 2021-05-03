@@ -6,6 +6,7 @@ type Props = {
 	navigation:any
 }
 type State = {
+	data:[]
 }
 
 export default class Conversations extends React.Component<Props, State>{
@@ -28,8 +29,8 @@ export default class Conversations extends React.Component<Props, State>{
 			<View style={styles.container}>
 				<FlatList
 					data={this.state.data}
-					renderItem={({index, item}) => <ConversationItem  navigate={this._navigateToConversationDetail} conversation={item}/> }
-					keyExtractor={(item) => item.id}
+					renderItem={({index, item}:any) => <ConversationItem  navigate={this._navigateToConversationDetail} conversation={item}/> }
+					keyExtractor={(item:any) => item.id}
 				
 				/>
 			</View>

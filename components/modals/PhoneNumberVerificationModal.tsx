@@ -3,6 +3,8 @@ import {StyleSheet, Modal, View, TextInput, Text, Dimensions, TouchableOpacity} 
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
+	setVisible:any,
+	visible:boolean
 }
 
 const  PhoneNumberVerificationModal = (props:Props) =>  {
@@ -13,11 +15,11 @@ const  PhoneNumberVerificationModal = (props:Props) =>  {
 		let number3:number;
 		let number4:number;
 		let number5:number;
-		const number1Ref = React.useRef();
-		const number2Ref = React.useRef();
-		const number3Ref = React.useRef();
-		const number4Ref = React.useRef();
-		const number5Ref = React.useRef();
+		const number1Ref:any = React.useRef();
+		const number2Ref:any = React.useRef();
+		const number3Ref:any = React.useRef();
+		const number4Ref:any = React.useRef();
+		const number5Ref:any = React.useRef();
 
 		useEffect( () => {
 			setModalVisible(props.visible)	
@@ -161,7 +163,7 @@ export default PhoneNumberVerificationModal;
 
 const {width, height} = Dimensions.get('window');
 
-const styles = StyleSheet.create({
+const styles:any = StyleSheet.create({
 	container:{
 		flex:1,
 	

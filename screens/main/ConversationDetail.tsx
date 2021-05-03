@@ -6,7 +6,8 @@ import Icon from "react-native-vector-icons/Ionicons";
 import Messages from '../../components/Messages';
 
 type Props = {
-	navigation:any
+	navigation:any,
+	route:any,
 }
 
 type State = {
@@ -66,7 +67,6 @@ export default class ConversationDetail extends React.Component<Props, State>{
 					<View style={styles.textInputContainer}>
 						<TextInput 
 							placeholder='Entrer votre message'
-							style={styles.textInput}
 						/>
 					</View>
 					<TouchableOpacity style={styles.sButton}>
