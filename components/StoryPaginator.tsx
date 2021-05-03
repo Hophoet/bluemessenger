@@ -1,9 +1,7 @@
 
 
-import { HeaderHeightContext } from '@react-navigation/stack';
-import React, {useState, useEffect} from 'react';
-import {StyleSheet, Image, View, Animated, TextInput, Button, Text, Dimensions, TouchableOpacity} from 'react-native';
-import Icon from "react-native-vector-icons/Ionicons";
+import React, {useEffect} from 'react';
+import {StyleSheet, View, Animated, Dimensions} from 'react-native';
 
 type Props = {
     data:any,

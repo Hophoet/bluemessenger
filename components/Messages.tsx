@@ -1,7 +1,6 @@
 
-import React, {useState, useEffect} from 'react';
-import {StyleSheet, FlatList, View, TextInput, Button, Text, Dimensions, TouchableOpacity} from 'react-native';
-import Icon from "react-native-vector-icons/Ionicons";
+import React, {useEffect} from 'react';
+import {StyleSheet, FlatList, View,  Dimensions } from 'react-native';
 import MessageItem from './MessageItem';
 
 type Props = {

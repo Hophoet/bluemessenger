@@ -1,9 +1,8 @@
 
 
 import React from 'react';
-import {Text, Image, Animated, ImageBackground, ScrollView, Button, Dimensions, View, TextInput, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
+import {Animated, Dimensions, View, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
-import Messages from '../../components/Messages';
 import StoryDetailItem from '../../components/StoryDetailItem';
 import StoryPaginator from '../../components/StoryPaginator';
 

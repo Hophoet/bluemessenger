@@ -1,7 +1,6 @@
 
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Image, View, TextInput, Button, Text, Dimensions, TouchableOpacity} from 'react-native';
-import Icon from "react-native-vector-icons/Ionicons";
+import {StyleSheet, Image, View, Text, Dimensions, TouchableOpacity} from 'react-native';
 
 type Props = {
 }

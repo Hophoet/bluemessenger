@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import {Text, Button, Dimensions, View, TextInput, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
+import {Dimensions, View, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import Messages from '../../components/Messages';
 

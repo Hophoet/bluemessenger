@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Modal, View, TextInput, Button, Text, Dimensions, TouchableOpacity} from 'react-native';
+import {StyleSheet, Modal, View, TextInput, Text, Dimensions, TouchableOpacity} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {

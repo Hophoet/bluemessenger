@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Button, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import PickerModal from 'react-native-picker-modal-view';
 import Icon from "react-native-vector-icons/Ionicons";
 

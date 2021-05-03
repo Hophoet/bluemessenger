@@ -1,13 +1,10 @@
-
 import React from 'react';
-import {Text, View, TextInput, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
-import Icon from "react-native-vector-icons/Ionicons";
+import {View, FlatList, StyleSheet} from 'react-native';
 import ConversationItem from '../../components/ConversationItem';
 
 type Props = {
-
+	navigation:any
 }
-
 type State = {
 }
 
@@ -19,7 +16,7 @@ export default class Conversations extends React.Component<Props, State>{
 		}
 	}
 
-	_navigateToConversationDetail = (data) => {
+	_navigateToConversationDetail = (data:any) => {
 		this.props.navigation.navigate('ConversationDetail',{conversation:data});
 
 	}
