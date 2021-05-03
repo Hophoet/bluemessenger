@@ -1,21 +1,32 @@
 
 
 import React from 'react';
-import {Text, Image,ImageBackground, ScrollView, Button, Dimensions, View, TextInput, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, Image, Animated, ImageBackground, ScrollView, Button, Dimensions, View, TextInput, FlatList, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from "react-native-vector-icons/Ionicons";
 import Messages from '../../components/Messages';
+import StoryDetailItem from '../../components/StoryDetailItem';
+import StoryPaginator from '../../components/StoryPaginator';
 
 type Props = {
 	navigation:any
 }
 
 type State = {
+	data:any,
+	currentIndex:any,
 }
 
 export default class StoryDetail extends React.Component<Props, State>{
 	constructor(props:Props){
 		super(props);
 		this._customNav();
+		this.scrollX =  new Animated.Value(0);
+		this.slidesRef = null;
+		this.viewConfig = { viewAreaCoveragePercentThreshold:50}
+		this.state = {
+			data:require('../../data/stories.json'),
+			currentIndex:0,
+		}
 	}
 
 	_customNav = () => {
@@ -43,6 +54,16 @@ export default class StoryDetail extends React.Component<Props, State>{
 	}
 
 	
+	viewableItemsChanged = ({ viewableItems }:any) => {
+			this.setState({currentIndex:viewableItems[0].index});
+	}
+
+	_navigateToStoryDetail = (data:any) => {
+		this.props.navigation.navigate('StoryDetail',{story:data});
+
+	}
+
+	
 	
 	componentDidMount(){
 	}
@@ -53,99 +74,26 @@ export default class StoryDetail extends React.Component<Props, State>{
 		let story = this.props.route.params.story;
 		return (
 			<View style={styles.container}>
-				<ScrollView 
-					ref='scroll'
-					horizontal={true}
-					style={styles.scrollViewContainer}>
-					<ImageBackground 
-						style={styles.image} 
-						source={require('../../assets/login-bg.jpg')}>
-						<View style={styles.statusHeader}>
-							<View style={styles.infosContainer}>
-								<Icon name='eye' color='white' size={25}/>
-								<Text style={styles.info}>Views</Text>
-							</View>
-							<View style={styles.infosContainer}>
-								<Icon name='chatbox' color='white' size={25}/>
-								<Text style={styles.info}>Views</Text>
-							</View>
-						</View>
-						<View style={styles.statusContent}>
-							<Text style={styles.statusText}>On sait depuis longtemps que travailler avec du tet lisible</Text>
-						</View>
-						<View style={styles.statusFooter}>
-							<View style={styles.statusScrollIndicatorContainer}>
-								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
-								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
-								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
-							</View>
-							<View style={styles.statusIconsContainer}>
-								<Text style={styles.statusIcon}>☺️</Text>
-								<Text style={styles.statusIcon}>😆</Text>
-								<Text style={styles.statusIcon}>😍</Text>
-							</View>
-							<View style={styles.statusActionsContainer}>
-								<TouchableOpacity style={styles.statusActionContainer}>
-									<View style={styles.statusActionIcon}>
-										<Icon name='chatbox' color='gray' size={20}/>
-									</View>
-									<Text style={styles.statusActionText}>Repondre</Text>
-								</TouchableOpacity>
-								<TouchableOpacity style={styles.statusActionContainer}>
-									<View style={styles.statusActionIcon}>
-										<Icon name='chatbox' color='gray' size={20}/>
-									</View>
-									<Text style={styles.statusActionText}>Commenter</Text>
-								</TouchableOpacity>
-									
-							</View>
-						</View>
-					</ImageBackground>
-					<ImageBackground 
-						style={styles.image} 
-						source={require('../../assets/login-bg.jpg')}>
-						<View style={styles.statusHeader}>
-							<View style={styles.infosContainer}>
-								<Icon name='eye' color='white' size={25}/>
-								<Text style={styles.info}>Views</Text>
-							</View>
-							<View style={styles.infosContainer}>
-								<Icon name='chatbox' color='white' size={25}/>
-								<Text style={styles.info}>Views</Text>
-							</View>
-						</View>
-						<View style={styles.statusContent}>
-							<Text style={styles.statusText}>On sait depuis longtemps que travailler avec du tet lisible</Text>
-						</View>
-						<View style={styles.statusFooter}>
-							<View style={styles.statusScrollIndicatorContainer}>
-								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
-								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
-								<Icon name='ellipsis-horizontal-circle-outline' color='white' size={40}/>
-							</View>
-							<View style={styles.statusIconsContainer}>
-								<Text style={styles.statusIcon}>☺️</Text>
-								<Text style={styles.statusIcon}>😆</Text>
-								<Text style={styles.statusIcon}>😍</Text>
-							</View>
-							<View style={styles.statusActionsContainer}>
-								<TouchableOpacity style={styles.statusActionContainer}>
-									<View style={styles.statusActionIcon}>
-										<Icon name='chatbox' color='gray' size={20}/>
-									</View>
-									<Text style={styles.statusActionText}>Repondre</Text>
-								</TouchableOpacity>
-								<TouchableOpacity style={styles.statusActionContainer}>
-									<View style={styles.statusActionIcon}>
-										<Icon name='chatbox' color='gray' size={20}/>
-									</View>
-									<Text style={styles.statusActionText}>Commenter</Text>
-								</TouchableOpacity>
-									
-							</View>
-						</View>
-					</ImageBackground>
-				</ScrollView>
+				<FlatList
+					data={this.state.data}
+					horizontal
+					pagingEnabled
+					onScroll={Animated.event([{ nativeEvent: {contentOffset:{ x: this.scrollX }}}], {
+						useNativeDriver: false
+					})}
+					scrollEventThrottle={32}
+					onViewableItemsChanged={this.viewableItemsChanged}
+					viewabilityConfig={this.viewConfig}
+					ref={this.slidesRef}
+					renderItem={({index, item}) => <StoryDetailItem  
+						navigate={this._navigateToStoryDetail} 
+						story={item}/> 
+					}
+					keyExtractor={(item:any) => item.id}
+				
+
+				/>
+				<StoryPaginator style={styles.paginator} scrollX={this.scrollX} data={this.state.data}/>
 			</View>
 		)
 	}
@@ -192,71 +140,15 @@ const styles = StyleSheet.create({
 		padding:5,
 		marginRight:5,
 	},
-	statusHeader:{ 
-		//backgroundColor:'red',
-		flex:1,
-		paddingTop:10
-	},
-	statusContent:{ 
-		//backgroundColor:'blue',
-		flex:4,
+	paginator:{
 		justifyContent:'center',
-		alignItems:'center'
-	},
-	statusText:{
-		color:'white',
-		textAlign:'center',
-		fontSize:30,
-		opacity:.7,
-	},
-	statusFooter:{
-		//backgroundColor:'yellow',
-		flex:3,
-	},
-	infosContainer:{
-		//backgroundColor:'green',
-		flexDirection:'row',
-		alignSelf:'flex-end',
-		paddingRight:50,
-		opacity:.7
-	},
-	info:{
-		color:'white',
-		paddingHorizontal:5
-		
-	},
-	statusScrollIndicatorContainer:{
-		//backgroundColor:'red',
-		flexDirection:'row',
-		opacity:.7,
-		alignSelf:'center',
-	},
-	statusIconsContainer:{
-		flexDirection:'row',
-		alignSelf:'center',
-	},
-	statusIcon:{
-		fontSize:40,
-	},
-	statusActionsContainer:{
-		//backgroundColor:'red',
-		flexDirection:'row',
-		justifyContent:'space-between',
-		paddingHorizontal:20,
-		opacity:.8,
-	},
-	statusActionContainer:{
-		//backgroundColor:'green',
-		flexDirection:'row',
 		alignItems:'center',
-	},
-	statusActionText:{
-		color:'white',
-		padding:5,
-	},
-	statusActionIcon:{
-		backgroundColor:'white',
-		borderRadius:90,
-		padding:5,
-	},
+		position:'absolute',
+		flexDirection:'row',
+        height:64,
+        width:width,
+		top:height - 140,
+        alignSelf:'flex-start',
+	}
 })
+
