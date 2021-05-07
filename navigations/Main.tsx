@@ -9,6 +9,7 @@ import ConversationDetail from '../screens/main/ConversationDetail';
 import Stories from '../screens/main/Stories';
 import StoryDetail from '../screens/main/StoryDetail';
 import AddTextStory from '../screens/main/AddTextStory';
+import AddAudioStory from '../screens/main/AddAudioStory';
 
 const Stack = createStackNavigator();
 
@@ -31,6 +32,7 @@ function Story() {
         <Stack.Screen name="Stories" component={Stories} />
         <Stack.Screen name="StoryDetail" component={StoryDetail} />
         <Stack.Screen name="AddTextStory" component={AddTextStory} />
+        <Stack.Screen name="AddAudioStory" component={AddAudioStory} />
       </Stack.Navigator>
     </NavigationContainer>
   );
