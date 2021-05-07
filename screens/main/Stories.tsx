@@ -21,6 +21,10 @@ export default class Stories extends React.Component<Props, State>{
 		this.props.navigation.navigate('StoryDetail',{story:data});
 	 }
 
+	_navigateTo = (screen) => {
+		this.props.navigation.navigate(screen,{});
+	}
+
 	
 
 
@@ -35,7 +39,9 @@ export default class Stories extends React.Component<Props, State>{
 					renderItem={({index, item}) => <StoryItem  navigate={this._navigateToStoryDetail} story={item}/> }
 					keyExtractor={(item) => item.id}
 				/>
-				<FloatButton/>
+				<FloatButton
+					navigateTo={this._navigateTo}
+				/>
 			</View>
 		)
 	}
