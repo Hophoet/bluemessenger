@@ -1,6 +1,7 @@
 
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, Image, View, Text, Dimensions, TouchableOpacity} from 'react-native';
+import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
 	navigate:any,
@@ -24,6 +25,11 @@ const  StoryItem = (props:Props) =>  {
 				<View style={styles.column2}>
 					<Text style={styles.username}>{props.story.user}</Text>
 					<Text >I y a 2h</Text>
+				</View>
+				<View style={styles.column3}>
+					<TouchableOpacity >
+						<Icon name='ellipsis-vertical' color='gray' size={20}/>
+					</TouchableOpacity>
 				</View>
 
 			</TouchableOpacity>
@@ -57,7 +63,7 @@ const styles = StyleSheet.create({
 		borderRadius:90
 	},
 	column2:{
-		flex:1,
+		flex:2,
 		justifyContent:'center',
 		paddingHorizontal:10,
 	},
@@ -65,10 +71,11 @@ const styles = StyleSheet.create({
 		flexDirection:'row',
 		justifyContent:'center',
 		alignItems:'center',
+		flex:1,
 	},
 	username:{
 		fontSize:20,
 		fontWeight:'bold'
-	}
+	},
 
 })
