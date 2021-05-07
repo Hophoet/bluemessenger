@@ -29,6 +29,9 @@ export default class Stories extends React.Component<Props, State>{
 			<View style={styles.container}>
 				<FlatList
 					data={this.state.data}
+					ItemSeparatorComponent= {
+						() =>	<View style={styles.itemsSeparator} />
+					}
 					renderItem={({index, item}) => <StoryItem  navigate={this._navigateToStoryDetail} story={item}/> }
 					keyExtractor={(item) => item.id}
 				/>
@@ -42,6 +45,12 @@ export default class Stories extends React.Component<Props, State>{
 const styles = StyleSheet.create({
 	container:{
 		flex:1,
+	},
+	itemsSeparator:{
+		height:1,
+		backgroundColor:'gray',
+		marginVertical:5,
+		opacity:.5,
 	}
 
 })
