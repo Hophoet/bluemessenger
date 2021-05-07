@@ -8,6 +8,7 @@ import Conversations from '../screens/main/Conversations';
 import ConversationDetail from '../screens/main/ConversationDetail';
 import Stories from '../screens/main/Stories';
 import StoryDetail from '../screens/main/StoryDetail';
+import AddTextStory from '../screens/main/AddTextStory';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,7 @@ function Story() {
       <Stack.Navigator>
         <Stack.Screen name="Stories" component={Stories} />
         <Stack.Screen name="StoryDetail" component={StoryDetail} />
+        <Stack.Screen name="AddTextStory" component={AddTextStory} />
       </Stack.Navigator>
     </NavigationContainer>
   );
