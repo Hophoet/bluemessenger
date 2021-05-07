@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, FlatList, StyleSheet} from 'react-native';
 import StoryItem from '../../components/StoryItem';
+import FloatButton from '../../components/FloatB';
 
 type Props = {
 	navigation:any
@@ -31,6 +32,7 @@ export default class Stories extends React.Component<Props, State>{
 					renderItem={({index, item}) => <StoryItem  navigate={this._navigateToStoryDetail} story={item}/> }
 					keyExtractor={(item) => item.id}
 				/>
+				<FloatButton/>
 			</View>
 		)
 	}
