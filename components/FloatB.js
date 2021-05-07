@@ -66,6 +66,7 @@ export default class FloatButton extends React.Component {
                  <TouchableWithoutFeedback 
 					style={styles.buttonContainer}
 					onPress={ () => {
+						this.props.navigateTo('AddMediaStory');
 					}}
 				 >
                     <Animated.View useNativeDriver={true} style={[styles.second, pinStyle]}>
