@@ -11,6 +11,7 @@ import StoryDetail from '../screens/main/StoryDetail';
 import AddTextStory from '../screens/main/AddTextStory';
 import AddAudioStory from '../screens/main/AddAudioStory';
 import AddMediaStory from '../screens/main/AddMediaStory';
+import Calls from '../screens/main/Calls';
 
 const Stack = createStackNavigator();
 
@@ -39,4 +40,14 @@ function Story() {
     </NavigationContainer>
   );
 }
-export default Story;
+
+function Call() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Calls" component={Calls} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+export default Call;
