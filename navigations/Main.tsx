@@ -7,6 +7,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Conversations from '../screens/main/Conversations';
 import ConversationDetail from '../screens/main/ConversationDetail';
 import Stories from '../screens/main/Stories';
+import Tontine from '../screens/main/Tontine';
 import StoryDetail from '../screens/main/StoryDetail';
 import AddTextStory from '../screens/main/AddTextStory';
 import AddAudioStory from '../screens/main/AddAudioStory';
@@ -50,4 +51,15 @@ function Call() {
     </NavigationContainer>
   );
 }
-export default Call;
+
+function TontineNav() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Tontine" component={Tontine} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default TontineNav;
