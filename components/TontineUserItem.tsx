@@ -10,12 +10,25 @@ const  StoryItem = (props:Props) =>  {
 		const [picked, pick] = useState(false);
 
 		useEffect( () => {
+			if(!props.pickable){
+				pick(true);
+			}
 		})
+
+		const _toggleUserSet = () => {
+				props.toggleUserSet(props.story);
+		}
 		
 
 		return (
 			<TouchableOpacity 
-				onPress={() =>pick(!picked)}
+				onPress={() =>{
+					if(props.pickable){
+						pick(!picked);
+						_toggleUserSet();
+					}
+				}
+				}
 				style={styles.container}>
 				<View style={styles.column1}>
 					<View style={styles.statusDot}/>
