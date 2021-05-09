@@ -40,7 +40,12 @@ export default class Tontine extends React.Component<Props, State>{
 						<View style={styles.actionLabelContainer}>
 							<Text style={styles.actionLabel}>Créer une tontine</Text>
 						</View>
-						<TouchableOpacity style={styles.actionButton}>
+						<TouchableOpacity 
+							onPress={() =>{
+								this._navigateTo('AddUsersToTontine');
+								}
+							}
+							style={styles.actionButton}>
 							<Icon name='add' size={30} color='white'/>
 						</TouchableOpacity>
 					</View>
