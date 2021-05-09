@@ -9,14 +9,30 @@ type Props = {
 }
 type State = {
 	data:any,
+	pickedUsers:any
 }
 export default class Stories extends React.Component<Props, State>{
 	constructor(props:Props){
 		super(props);
 		this.state = {
 			data:require('../../data/stories.json'),
+			pickedUsers:[],
 		}
 	}
+
+	toggleUserSet = (user) => {
+		let users = [...this.state.pickedUsers];
+		let userExists = users.find(item => item.id == user.id);
+		if(userExists){
+			users = users.filter(item => item.id != user.id);
+		}
+		else{
+			users.push(user);
+		}
+		this.setState({pickedUsers:users});
+		console.log(users);
+	}
+
 	_customNav = () => {
 		this.props.navigation.setOptions({
 		  headerRight: () => (
@@ -46,8 +62,11 @@ export default class Stories extends React.Component<Props, State>{
 	}
 
 
-	_navigateTo = (screen) => {
-		this.props.navigation.navigate(screen,{});
+	navigate = () => {
+		this.props.navigation.navigate(
+			'AddTitleToTontine',
+			{pickedUsers:this.state.pickedUsers}
+		);
 	}
 
 	
@@ -61,13 +80,18 @@ export default class Stories extends React.Component<Props, State>{
 					ItemSeparatorComponent= {
 						() =>	<View style={styles.itemsSeparator} />
 					}
-					renderItem={({index, item}) => <TontineUserItem  navigate={this._navigateToStoryDetail} story={item}/> }
+					renderItem={({index, item}) => <TontineUserItem toggleUserSet={this.toggleUserSet} pickable={true}  navigate={this._navigateToStoryDetail} story={item}/> }
 					keyExtractor={(item) => item.id}
 				/>
-				<TontineFloatButton
-					navigateTo={this._navigateTo}
-					icon='checkmark'
-				/>
+				{ (this.state.pickedUsers.length)
+					?(<TontineFloatButton
+						navigate={this.navigate}
+						
+						icon='checkmark'
+					/>)
+					:null
+				
+				}
 			</View>
 		)
 	}
