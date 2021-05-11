@@ -53,6 +53,12 @@ export default class AddTitleToTontine extends React.Component<Props, State>{
 	}
 
 	
+	navigate = () => {
+		this.props.navigation.navigate(
+			'ParameterTontine',
+			{pickedUsers:this.state.pickedUsers}
+		);
+	}
 
 
 	render(){
@@ -81,7 +87,7 @@ export default class AddTitleToTontine extends React.Component<Props, State>{
 					/>
 				</View>
 				<TontineFloatButton
-					navigateTo={this._navigateTo}
+					navigate={this.navigate}
 					icon='checkmark'
 				/>
 			</View>
