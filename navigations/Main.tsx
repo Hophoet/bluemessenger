@@ -10,6 +10,7 @@ import Stories from '../screens/main/Stories';
 import Tontine from '../screens/main/Tontine';
 import AddUsersToTontine from '../screens/main/AddUsersToTontine';
 import AddTitleToTontine from '../screens/main/AddTitleToTontine';
+import ParameterTontine from '../screens/main/ParameterTontine';
 import StoryDetail from '../screens/main/StoryDetail';
 import AddTextStory from '../screens/main/AddTextStory';
 import AddAudioStory from '../screens/main/AddAudioStory';
@@ -61,6 +62,7 @@ function TontineNav() {
         <Stack.Screen name="Tontine" component={Tontine} />
         <Stack.Screen name="AddUsersToTontine" component={AddUsersToTontine} />
         <Stack.Screen name="AddTitleToTontine" component={AddTitleToTontine} />
+        <Stack.Screen name="ParameterTontine" component={ParameterTontine} />
       </Stack.Navigator>
     </NavigationContainer>
   );
