@@ -2,14 +2,20 @@
 { 
 	id:43, 
 	user:'john',
+	completed:false,
+	state:'Versé : 0F/15000F'
 },
 { 
 	id:3, 
 	user:'alicia',
+	completed:false,
+	state:'Versé : 0F/15000F'
 },
 { 
 	id:4, 
-	user:'rude'
+	user:'rude',
+	completed:true,
+	state:'Versé : 15000F/15000F',
 },
 
 ]
