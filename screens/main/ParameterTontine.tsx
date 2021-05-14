@@ -24,8 +24,23 @@ export default class ParameterTontine extends React.Component<Props, State>{
 	}
 
 	toggleOrderType = () => {
+		if(this.state.customOrderTypePicked){
+			console.log('moment')	
+			this.setState({usersOrder:[...this.state.pickedUsers]});
+		}
+		else{
+			this.setState({usersOrder:[]});
+		}
 		this.setState({customOrderTypePicked:!this.state.customOrderTypePicked});
 	}
+
+	navigate = () => {
+		this.props.navigation.navigate(
+			'TontineOverview',
+			{pickedUsers:this.state.usersOrder}
+		);
+	}
+
 	_customNav = () => {
 		this.props.navigation.setOptions({
 		  headerRight: () => (
@@ -140,10 +155,13 @@ export default class ParameterTontine extends React.Component<Props, State>{
 						keyExtractor={(item) => item.id}
 					/>
 				</View>
-				<TontineFloatButton
-					navigateTo={this._navigateTo}
-					icon='checkmark'
-				/>
+				{ (this.state.usersOrder.length == this.state.pickedUsers.length)?
+				(<TontineFloatButton
+					navigate={this.navigate}
+					icon='checkmark'/>
+				)
+				:null
+				}
 			</View>
 		)
 	}
