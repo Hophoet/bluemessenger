@@ -11,6 +11,7 @@ import Tontine from '../screens/main/Tontine';
 import AddUsersToTontine from '../screens/main/AddUsersToTontine';
 import AddTitleToTontine from '../screens/main/AddTitleToTontine';
 import TontineOverview from '../screens/main/TontineOverview';
+import Card from '../screens/main/Card';
 import ParameterTontine from '../screens/main/ParameterTontine';
 import StoryDetail from '../screens/main/StoryDetail';
 import AddTextStory from '../screens/main/AddTextStory';
@@ -70,4 +71,13 @@ function TontineNav() {
   );
 }
 
-export default TontineNav;
+function CardNav() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Card" component={Card} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+export default CardNav;
