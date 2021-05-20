@@ -9,10 +9,16 @@ type Props = {
 const  StoryItem = (props:Props) =>  {
 
 		useEffect( () => {
+
 		})
 
 		return (
 			<TouchableOpacity 
+				onPress={() =>{
+					if(props.item.name == 'Mon Compte'){
+						props.navigate('Profile');
+					}
+				}}
 				style={styles.container}>
 				<View style={styles.column1}>
 					<Icon name={props.item.icon} color='#1597bb' size={20}/>
