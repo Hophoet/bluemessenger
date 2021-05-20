@@ -50,10 +50,10 @@ export default class Settings extends React.Component<Props, State>{
 	}
 
 
-	navigate = () => {
+	navigate = (screen) => {
 		this.props.navigation.navigate(
-			'AddTitleToTontine',
-			{pickedUsers:this.state.pickedUsers}
+			screen,
+			{}
 		);
 	}
 
@@ -69,7 +69,9 @@ export default class Settings extends React.Component<Props, State>{
 						() =>	<View style={styles.itemsSeparator} />
 					}
 					renderItem={({index, item}) =>(
-						 <SettingsItem item={item}/>
+						 <SettingsItem 
+							navigate={this.navigate}
+							item={item}/>
 						)
 					 }
 				
