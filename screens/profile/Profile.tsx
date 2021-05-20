@@ -116,7 +116,7 @@ export default class Profile extends React.Component<Props, State>{
 									() =>	<View style={styles.itemsSeparator} />
 								}
 								renderItem={({index, item}) => <ProfileActionItem  
-									navigate={this._navigateToStoryDetail} 
+									navigate={this._navigateTo} 
 									item={item}/> 
 								}
 								keyExtractor={(item:any) => item.id}
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
 		width:width/4,
 		height:width/4,
 		borderRadius:100,
-		elevation:10,
+		//elevation:10,
 	},
 	userName:{
 		color:'white',
