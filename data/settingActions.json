@@ -1,0 +1,45 @@
+[
+{ 
+	id:43, 
+	icon:'pencil',
+	name:'Mon profil',
+	second_text:'John Doe',
+},
+{ 
+	id:4, 
+	icon:'notifications',
+	name:'Notifications',
+	second_text:'All',
+},
+{ 
+	id:3, 
+	icon:'settings',
+	name:'General',
+	second_text:'',
+},
+{ 
+	id:33, 
+	icon:'person',
+	name:'Mon Compte',
+	second_text:'john@gmail.com',
+},
+{ 
+	id:9, 
+	icon:'lock-closed',
+	name:'Confidentialité',
+	second_text:'',
+},
+{ 
+	id:12, 
+	icon:'settings',
+	name:'Blocage',
+	second_text:'None',
+},
+{ 
+	id:344, 
+	icon:'help',
+	name:'Help',
+	second_text:'Questions?',
+},
+
+]
