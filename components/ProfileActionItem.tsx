@@ -11,14 +11,21 @@ const  ProfileActionItem = (props:Props) =>  {
 		useEffect( () => {
 		})
 
+
+		let navigate = () => {
+			if(props.item.name == 'Reglages'){
+				props.navigate('Settings');
+			}	
+			else if(props.item.name == 'Archives'){
+				props.navigate('Archives');
+			}
+
+		}
+
 		
 		return (
 			<TouchableOpacity 
-				onPress={() => {
-					if(props.item.name == 'Reglages'){
-						props.navigate('Settings');
-					}	
-				}}
+				onPress={navigate}
 				style={styles.container}>
 				<View style={styles.column1}>
 					<Text style={styles.actionName}>{props.item.name}</Text>
