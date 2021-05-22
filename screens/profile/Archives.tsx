@@ -114,6 +114,7 @@ export default class Archives extends React.Component<Props, State>{
 
 							return (
 								<ArchiveItem 
+									key={item.id}
 									selectArchive={this.selectArchive}
 									toggleModal={this.toggleModal} 
 									item={item}/>
