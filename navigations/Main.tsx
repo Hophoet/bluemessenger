@@ -13,6 +13,7 @@ import AddTitleToTontine from '../screens/main/AddTitleToTontine';
 import TontineOverview from '../screens/main/TontineOverview';
 import Settings from '../screens/profile/Settings';
 import Profile from '../screens/profile/Profile';
+import Contacts from '../screens/profile/Contacts';
 import Archives from '../screens/profile/Archives';
 import Card from '../screens/main/Card';
 import ParameterTontine from '../screens/main/ParameterTontine';
@@ -91,6 +92,7 @@ function ProfileNav() {
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="Archives" component={Archives} />
+        <Stack.Screen name="Contacts" component={Contacts} />
       </Stack.Navigator>
     </NavigationContainer>
   );
