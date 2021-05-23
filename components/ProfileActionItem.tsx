@@ -19,6 +19,9 @@ const  ProfileActionItem = (props:Props) =>  {
 			else if(props.item.name == 'Archives'){
 				props.navigate('Archives');
 			}
+			else if(props.item.name == 'Mes contacts'){
+				props.navigate('Contacts');
+			}
 
 		}
 
