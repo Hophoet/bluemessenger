@@ -25,21 +25,18 @@ import Calls from '../screens/main/Calls';
 
 const Stack = createStackNavigator();
 
-function App() {
+function ChatNav() {
   return (
-    <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Conversations" component={Conversations} />
         <Stack.Screen name="ConversationDetail" component={ConversationDetail} />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 }
 
 
-function Story() {
+function StoryNav() {
   return (
-    <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Stories" component={Stories} />
         <Stack.Screen name="StoryDetail" component={StoryDetail} />
@@ -47,23 +44,19 @@ function Story() {
         <Stack.Screen name="AddAudioStory" component={AddAudioStory} />
         <Stack.Screen name="AddMediaStory" component={AddMediaStory} />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 }
 
-function Call() {
+function CallNav() {
   return (
-    <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Calls" component={Calls} />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 }
 
 function TontineNav() {
   return (
-    <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Tontine" component={Tontine} />
         <Stack.Screen name="AddUsersToTontine" component={AddUsersToTontine} />
@@ -71,17 +64,14 @@ function TontineNav() {
         <Stack.Screen name="ParameterTontine" component={ParameterTontine} />
         <Stack.Screen name="TontineOverview" component={TontineOverview} />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 }
 
 function CardNav() {
   return (
-    <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Card" component={Card} />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 }
 
@@ -97,4 +87,46 @@ function ProfileNav() {
     </NavigationContainer>
   );
 }
-export default ProfileNav;
+
+function MainNav() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+			options={{
+				headerShown:false,
+			}}
+			name="ChatNav" 
+			component={ChatNav} />
+        <Stack.Screen 
+			options={{
+				headerShown:false,
+			}}
+			name="StoryNav" 
+			component={StoryNav} />
+        <Stack.Screen 
+			options={{
+				headerShown:false,
+			}}
+			name="CallNav" 
+			component={CallNav} />
+        <Stack.Screen 
+			options={{
+				headerShown:false,
+			}}
+			name="TontineNav" 
+			component={TontineNav} />
+        <Stack.Screen 
+			options={{
+				headerShown:false,
+			}}
+			name="CardNav" 
+			component={CardNav} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export {
+	 MainNav
+}
