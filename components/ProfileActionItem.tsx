@@ -22,6 +22,9 @@ const  ProfileActionItem = (props:Props) =>  {
 			else if(props.item.name == 'Mes contacts'){
 				props.navigate('Contacts');
 			}
+			else if(props.item.name == 'Message'){
+				props.navigate('ChatNav');
+			}
 
 		}
 
