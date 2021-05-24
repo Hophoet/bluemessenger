@@ -36,16 +36,6 @@ export default class Profile extends React.Component<Props, State>{
 
 	_customNav = () => {
 		this.props.navigation.setOptions({
-		  headerRight: () => (
-			<View style={styles.headerRightContainer}>
-				<TouchableOpacity style={styles.headerButton}>
-					<Icon name='search' size={25} color='white'/>
-				</TouchableOpacity>
-				<TouchableOpacity style={styles.headerButton}>
-					<Icon name='ellipsis-vertical' size={25} color='white'/>
-				</TouchableOpacity>
-			</View>
-		  ),
 		  title:'Marina',
 		  headerTintColor:'white',
           headerStyle: {
@@ -124,7 +114,9 @@ export default class Profile extends React.Component<Props, State>{
 
 							/>
 						</ImageBackground>
-						<TouchableOpacity style={styles.logoutButton}>
+						<TouchableOpacity 
+							onPress={()=>this._navigateTo('AuthNav')}
+							style={styles.logoutButton}>
 							<Text style={styles.logoutButtonLabel}>Déconnexion</Text>
 						</TouchableOpacity>
 					</View>
