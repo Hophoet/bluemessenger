@@ -29,6 +29,8 @@ export default class Archives extends React.Component<Props, State>{
 		this.setState({selectedArchive:archive});
 	}
 
+
+
 	_customNav = () => {
 		this.props.navigation.setOptions({
 		  headerRight: () => (
@@ -124,7 +126,9 @@ export default class Archives extends React.Component<Props, State>{
 					}
 						</View>
 					</ScrollView>
-						<TouchableOpacity style={styles.logoutButton}>
+						<TouchableOpacity 
+							onPress={()=>this._navigateTo('AuthNav')}
+							style={styles.logoutButton}>
 							<Text style={styles.logoutButtonLabel}>Déconnexion</Text>
 						</TouchableOpacity>
 				</View>
