@@ -82,7 +82,9 @@ export default class Contacts extends React.Component<Props, State>{
 							contacts={this.state.contacts}/>	
 					</View>
 				</ScrollView>
-				<TouchableOpacity style={styles.logoutButton}>
+				<TouchableOpacity 
+					onPress={()=>this._navigateTo('AuthNav')}
+					style={styles.logoutButton}>
 					<Text style={styles.logoutButtonLabel}>Déconnexion</Text>
 				</TouchableOpacity>
 			</View>
