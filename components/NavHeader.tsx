@@ -64,7 +64,9 @@ export default class TontineOverview extends React.Component<Props, State>{
 	render(){
 		return (
 			<View style={styles.container}>
-				<MainHeader screen={this.state.selectedScreen}/>
+				<MainHeader  
+					navigateTo={this.props.navigateTo}
+					screen={this.state.selectedScreen}/>
 				<View style={styles.row1}>
 					{this.state.screens.map(screen => {
 						let isSelected = screen.id == this.state.selectedScreen.id;
