@@ -39,6 +39,7 @@ const  PhoneNumberVerificationModal = (props:Props) =>  {
 			){
 				//console.log('valide form')
 				_closeModal()
+				props.navigateTo('ChatNav');	
 			}
 			else{
 				alert('Entrer votre code de verification')
@@ -174,8 +175,9 @@ const styles:any = StyleSheet.create({
 		
 	},
 	modalContentContainer:{
+		top:-80,
 		backgroundColor:'white',
-		minWidth:width/1.2,
+		//maxWidth:width/1.2,
 		height:width,
 		alignSelf:'center',
 		marginVertical:width/2,
@@ -195,6 +197,7 @@ const styles:any = StyleSheet.create({
 	},
 	firstContentContainer:{
 		//backgroundColor:'red',
+		maxWidth:width/1.2,
 		flex:1,
 		justifyContent:'space-around',
 		alignItems:'center'
@@ -208,6 +211,8 @@ const styles:any = StyleSheet.create({
 	secondContentContainer:{
 		//backgroundColor:'red',
 		flex:1,
+		maxWidth:width/1.2,
+		minWidth:width/1.2,
 		justifyContent:'space-around',
 		alignItems:'center'
 	},
