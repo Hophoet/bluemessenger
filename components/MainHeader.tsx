@@ -32,7 +32,11 @@ const  MainHeader = (props:Props) =>  {
 								<TouchableOpacity style={styles.iconButton}>
 									<Icon name='search' color='white' size={35}/>
 								</TouchableOpacity>
-								<TouchableOpacity style={styles.iconButton}>
+								<TouchableOpacity 
+									onPress={()=>{
+										props.navigateTo('ProfileNav');
+									}}	
+									style={styles.iconButton}>
 									<Icon name='ellipsis-vertical' size={35} color='white'/>
 								</TouchableOpacity>
 							</View>
@@ -48,8 +52,8 @@ export default MainHeader;
 const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
 	container:{
-		backgroundColor:'red',
-		height:width/3,
+		//backgroundColor:'red',
+		height:width/4,
 	},
 	imageBackground:{
 		flex:1,
