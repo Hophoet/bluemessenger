@@ -29,6 +29,10 @@ export default class Login extends React.Component<LoginProps, LoginState>{
 		this.setState({phoneNumberVerificationModalIsVisible:true});
 	}
 
+	navigateTo = (screen) =>{
+		this.props.navigation.navigate(screen);
+	}
+
 	setVisible = (value) => {
 		this.setState({phoneNumberVerificationModalIsVisible:value});
 	}
@@ -39,6 +43,7 @@ export default class Login extends React.Component<LoginProps, LoginState>{
 		return (
 			<View style={styles.container}>
 				<PhoneNumberVerificationModal 
+					navigateTo={this.navigateTo}
 					setVisible={this.setVisible}
 					visible={this.state.phoneNumberVerificationModalIsVisible}/>
 				<ImageBackground 
