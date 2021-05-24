@@ -2,6 +2,8 @@ import React from 'react';
 import {View, FlatList, StyleSheet} from 'react-native';
 import CallItem from '../../components/CallItem';
 import FloatButton from '../../components/CallFloatButton';
+import NavHeader from '../../components/NavHeader';
+
 
 type Props = {
 	navigation:any
@@ -12,8 +14,10 @@ type State = {
 export default class Stories extends React.Component<Props, State>{
 	constructor(props:Props){
 		super(props);
+		this._customNav();
 		this.state = {
 			data:require('../../data/stories.json'),
+			screen:{ id:4, icon:'call', label:'Appels'},
 		}
 	}
 
@@ -26,6 +30,27 @@ export default class Stories extends React.Component<Props, State>{
 	}
 
 	
+	navigateTo = (screen) => {
+		this.props.navigation.navigate(screen,{});
+	}
+
+   _customNav = () => {
+        this.props.navigation.setOptions({
+          header: () => (
+            <NavHeader screen={this.state.screen} navigateTo={this.navigateTo}/>
+          ),
+          title:'kdfj',
+          headerTintColor:'white',
+          headerStyle: {
+            backgroundColor: '#1597bb',
+          },
+          headerLeftStyle:{color:'white'},
+
+
+        });
+
+    }
+
 
 
 	render(){

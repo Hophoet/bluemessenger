@@ -3,6 +3,8 @@ import {Text, TextInput, Dimensions, View, TouchableOpacity, ScrollView, FlatLis
 import TontineUserItem from '../../components/TontineUserItem';
 import TontineFloatButton from '../../components/TontineFloatButton';
 import Icon from "react-native-vector-icons/Ionicons";
+import NavHeader from '../../components/NavHeader';
+
 
 type Props = {
 	navigation:any
@@ -15,10 +17,13 @@ type State = {
 export default class Card extends React.Component<Props, State>{
 	constructor(props:Props){
 		super(props);
+		this._customNav();
 		this.state = {
 			data:require('../../data/stories.json'),
 			usersOrder:[],
-			customOrderTypePicked:true
+			customOrderTypePicked:true,
+			screen:{ id:6, icon:'card', label:'Cartes'},
+
 		}
 	}
 
@@ -39,38 +44,32 @@ export default class Card extends React.Component<Props, State>{
 		);
 	}
 
-	_customNav = () => {
-		this.props.navigation.setOptions({
-		  headerRight: () => (
-			<View style={styles.headerRightContainer}>
-				<TouchableOpacity style={styles.headerButton}>
-					<Icon name='search' size={25} color='white'/>
-				</TouchableOpacity>
-				<TouchableOpacity style={styles.headerButton}>
-					<Icon name='ellipsis-vertical' size={25} color='white'/>
-				</TouchableOpacity>
-			</View>
-		  ),
-		  title:'Nouvelle Tontine',
-		  headerTintColor:'white',
-          headerStyle: {
-            backgroundColor: '#1597bb',
-          },
-		  headerLeftStyle:{color:'white'},
-
-		
-		});
-
-	}
-
 	componentDidMount() {
-		this._customNav();
 	}
-
 
 	_navigateTo = (screen) => {
 		this.props.navigation.navigate(screen,{});
 	}
+
+	navigateTo = (screen) => {
+        this.props.navigation.navigate(screen,{});
+    }
+
+   _customNav = () => {
+        this.props.navigation.setOptions({
+          header: () => (
+            <NavHeader screen={this.state.screen} navigateTo={this.navigateTo}/>
+          ),
+          headerTintColor:'white',
+          headerStyle: {
+            backgroundColor: '#1597bb',
+          },
+          headerLeftStyle:{color:'white'},
+
+
+        });
+
+    }
 
 
 	toogleUserInTheOrderList = (user) => {

@@ -91,7 +91,7 @@ export default class TontineOverview extends React.Component<Props, State>{
 const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
 	container:{
-		flex:1,
+		backgroundColor:'red',
 	},
 	row1:{
 		//backgroundColor:'red',
