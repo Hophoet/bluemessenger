@@ -127,19 +127,19 @@ export default class Card extends React.Component<Props, State>{
 					<View style={styles.logoActionsContainer}>
 						<View style={styles.actionContainer}>
 							<TouchableOpacity style={styles.logoContainer}>
-								<Icon name='lock-closed' size={35} color='#1597bb'/>
+								<Icon name='lock-closed' size={20} color='#1597bb'/>
 							</TouchableOpacity>
 							<Text style={styles.actionName}>Voir les details de la carte</Text>
 						</View>
 						<View style={styles.actionContainer}>
 							<TouchableOpacity style={styles.logoContainer}>
-								<Icon name='eye' size={35} color='#1597bb'/>
+								<Icon name='eye' size={20} color='#1597bb'/>
 							</TouchableOpacity>
 							<Text style={styles.actionName}>Voir les details de la carte</Text>
 						</View>
 						<View style={styles.actionContainer}>
 							<TouchableOpacity style={styles.logoContainer}>
-								<Icon name='settings' size={35} color='#1597bb'/>
+								<Icon name='settings' size={20} color='#1597bb'/>
 							</TouchableOpacity>
 							<Text style={styles.actionName}>Voir les details de la carte</Text>
 						</View>
@@ -216,13 +216,14 @@ const styles = StyleSheet.create({
 		marginRight:5,
 	},
 	header:{
-		//backgroundColor:'#39f2',
+		//backgroundColor:'blue',
 		flex:1,
 		justifyContent:'center',
 		paddingHorizontal:20,
 	},
 	content:{
-		flex:2,
+		flex:2.4,
+		//backgroundColor:'red',
 	},
 	textInput:{
 		backgroundColor:'white',
@@ -234,11 +235,13 @@ const styles = StyleSheet.create({
 		color:'#1597bb',
 	},
 	orderTypeToggleButtonsContainer:{
-		//backgroundColor:'red',
+		//backgroundColor:'#fede',
 		flexDirection:'row',
-		paddingVertical:20,
+		//paddingVertical:20,
 		alignItems:'center',
 		justifyContent:'center',
+		//flex:1,
+		paddingVertical:5,
 	},
 	orderTypePickedButton:{
     	backgroundColor: '#1597bb',
@@ -266,18 +269,19 @@ const styles = StyleSheet.create({
 		alignItems:'center',
 		justifyContent:'center',
 		width:width/1.2,
-		margin:10,
+		marginHorizontal:10,
 		borderRadius:10,
 		flex:1,
 	},
 	cardName:{
 		alignSelf:'center',
 		textAlign:'center',
-		fontSize:25,
+		fontSize:20,
 		color:'#0005',
 	},
 	logoActionsContainer:{
-		//backgroundColor:'red',
+		//backgroundColor:'aqua',
+		flex:1.5,
 		flexDirection:'row',
 		alignItems:'center',
 		justifyContent:'center',
@@ -288,23 +292,31 @@ const styles = StyleSheet.create({
 	},
 	logoContainer:{
 		backgroundColor:'#39f3',
-		padding:20,
+		width:width/7,
+		height:width/7,
+		//padding:20,
 		borderRadius:100,
-		marginHorizontal:10,
+		//marginHorizontal:10,
 		alignSelf:'center',
+		justifyContent:'center',
+		alignItems:'center',
+		flex:1,
 	},
 	actionName:{
 		textAlign:'center',
 		color:'#0006',
 	},
 	locationContainer:{
-		//backgroundColor:'red',
+		//backgroundColor:'#Aebc',
 		flexDirection:'row',
+		justifyContent:'center',
+		alignItems:'center',
 		borderWidth:StyleSheet.hairlineWidth,
 		borderColor:'gray',
 		borderRadius:5,
 		marginHorizontal:20,
-		padding:5,
+		//padding:5,
+		flex:1,
 	},
 	locationIconContainer:{
 		justifyContent:'center',
@@ -323,7 +335,10 @@ const styles = StyleSheet.create({
 		fontSize:13,
 	},
 	footer:{
-		marginTop:10,
+		//marginTop:10,
+		flex:2,
+		//backgroundColor:'#EEFc',
+		paddingVertical:5,
 	},
 	footerRow1:{
 		flexDirection:'row',
@@ -341,6 +356,7 @@ const styles = StyleSheet.create({
 		borderRadius:10,
 		paddingHorizontal:20,
 		marginTop:5,
+		flex:1,
 	},
 	footerRow2Column1:{
 		paddingVertical:5,
