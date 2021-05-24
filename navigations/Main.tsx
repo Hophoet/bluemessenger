@@ -4,6 +4,15 @@ import * as React from 'react';
 import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
+import Login from '../screens/authentication/Login';
+
+import Contacts from '../screens/profile/Contacts';
+import Settings from '../screens/profile/Settings';
+import Profile from '../screens/profile/Profile';
+import Archives from '../screens/profile/Archives';
+
+import Card from '../screens/main/Card';
 import Conversations from '../screens/main/Conversations';
 import ConversationDetail from '../screens/main/ConversationDetail';
 import Stories from '../screens/main/Stories';
@@ -11,11 +20,6 @@ import Tontine from '../screens/main/Tontine';
 import AddUsersToTontine from '../screens/main/AddUsersToTontine';
 import AddTitleToTontine from '../screens/main/AddTitleToTontine';
 import TontineOverview from '../screens/main/TontineOverview';
-import Settings from '../screens/profile/Settings';
-import Profile from '../screens/profile/Profile';
-import Contacts from '../screens/profile/Contacts';
-import Archives from '../screens/profile/Archives';
-import Card from '../screens/main/Card';
 import ParameterTontine from '../screens/main/ParameterTontine';
 import StoryDetail from '../screens/main/StoryDetail';
 import AddTextStory from '../screens/main/AddTextStory';
@@ -24,6 +28,20 @@ import AddMediaStory from '../screens/main/AddMediaStory';
 import Calls from '../screens/main/Calls';
 
 const Stack = createStackNavigator();
+
+
+function AuthNav() {
+  return (
+      <Stack.Navigator>
+        <Stack.Screen 
+			options={{
+				headerShown:false,
+			}}
+			name="Login" 
+			component={Login} />
+      </Stack.Navigator>
+  );
+}
 
 function ChatNav() {
   return (
@@ -77,14 +95,12 @@ function CardNav() {
 
 function ProfileNav() {
   return (
-    <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="Archives" component={Archives} />
         <Stack.Screen name="Contacts" component={Contacts} />
       </Stack.Navigator>
-    </NavigationContainer>
   );
 }
 
@@ -122,6 +138,18 @@ function MainNav() {
 			}}
 			name="CardNav" 
 			component={CardNav} />
+        <Stack.Screen 
+			options={{
+				headerShown:false,
+			}}
+			name="ProfileNav" 
+			component={ProfileNav} />
+        <Stack.Screen 
+			options={{
+				headerShown:false,
+			}}
+			name="AuthNav" 
+			component={AuthNav} />
       </Stack.Navigator>
     </NavigationContainer>
   );
