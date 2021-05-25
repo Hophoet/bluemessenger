@@ -214,10 +214,11 @@ const styles:any = StyleSheet.create({
 	modalContentContainer:{
 		backgroundColor:'white',
 		minWidth:width/1.2,
-		minHeight:width/1.3,
+		minHeight:width,
 		alignSelf:'center',
 		marginVertical:width/2,
 		borderRadius:20,
+		top:-width/3,
 	},
 	closeButton:{
 		backgroundColor:'#1597bb',
@@ -244,7 +245,7 @@ const styles:any = StyleSheet.create({
 	},
 	secondContentContainer:{
 		//backgroundColor:'red',
-		//flex:1,
+		flex:1,
 		justifyContent:'space-around',
 		paddingHorizontal:15,
 	},
@@ -264,6 +265,7 @@ const styles:any = StyleSheet.create({
 	textInputsContainer:{
 		//backgroundColor:'red',
 		justifyContent:'center',
+		flex:3,
 	},
 	amountTextInputContainer:{
 		flexDirection:'row',
@@ -281,10 +283,11 @@ const styles:any = StyleSheet.create({
 		borderWidth:1,
 		borderRadius:50,
 		marginBottom:10,
+		flex:1,
 
 	},
 	textInput:{
-		fontSize:20,
+		fontSize:18,
 		paddingHorizontal:20,
 		color:'#1597bb',
 		
@@ -301,6 +304,8 @@ const styles:any = StyleSheet.create({
 	},
 	lockLogo:{
 		alignSelf:'center',
+		//flex:1,
+		paddingBottom:5,
 	},		
 	lastTextInputsContainer:{
 		flexDirection:'row',
