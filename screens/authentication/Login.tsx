@@ -65,6 +65,7 @@ export default class Login extends React.Component<LoginProps, LoginState>{
 								data={this.state.phoneNumberCodes}/>
 							<TextInput
 								placeholder='phone number'
+								keyboardType="numeric"
 								placeholderTextColor='white'
 								style={styles.phoneNumberTextInput}
 							/>
