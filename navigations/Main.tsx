@@ -112,6 +112,12 @@ function MainNav() {
 			options={{
 				headerShown:false,
 			}}
+			name="AuthNav" 
+			component={AuthNav} />
+        <Stack.Screen 
+			options={{
+				headerShown:false,
+			}}
 			name="ChatNav" 
 			component={ChatNav} />
         <Stack.Screen 
@@ -144,12 +150,6 @@ function MainNav() {
 			}}
 			name="ProfileNav" 
 			component={ProfileNav} />
-        <Stack.Screen 
-			options={{
-				headerShown:false,
-			}}
-			name="AuthNav" 
-			component={AuthNav} />
       </Stack.Navigator>
     </NavigationContainer>
   );
