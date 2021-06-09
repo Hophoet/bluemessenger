@@ -4,9 +4,9 @@ import PickerModal from 'react-native-picker-modal-view';
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
-	data:[],
-	style:any,
-	defaultLabel:string
+	data:any[],
+	style?:any,
+	defaultLabel:string,
 };
 
 const  Modal = (props:Props) =>  {

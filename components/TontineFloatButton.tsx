@@ -3,7 +3,20 @@ import {View, Text, StyleSheet, TouchableWithoutFeedback, Animated} from 'react-
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Icon from "react-native-vector-icons/Ionicons";
 
-export default class FloatButton extends React.Component {
+type Props = {
+    navigate:any,
+    navigateTo?:any,
+    icon:string,
+}
+
+type State = {
+
+}
+
+export default class FloatButton extends React.Component<Props, State> {
+    constructor(props:Props){
+        super(props);
+    }
 
     press = () => {
 		if(this.props.navigate){
@@ -27,7 +40,6 @@ export default class FloatButton extends React.Component {
 
 const styles = StyleSheet.create({
     container:{
-        alignItems:'center',
         position:'absolute',
         bottom:32,
         right:32,

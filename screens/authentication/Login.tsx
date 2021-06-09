@@ -5,12 +5,13 @@ import PhoneNumberVerificationModal from '../../components/modals/PhoneNumberVer
 import Icon from "react-native-vector-icons/Ionicons";
 
 type LoginProps = {
+	navigation:any
 
 }
 type LoginState = {
 	countries:any[],
 	phoneNumberCodes:any[],
-	phoneNumberVerificationModalIsVisible:bool
+	phoneNumberVerificationModalIsVisible:boolean
 	
 }
 
@@ -29,11 +30,11 @@ export default class Login extends React.Component<LoginProps, LoginState>{
 		this.setState({phoneNumberVerificationModalIsVisible:true});
 	}
 
-	navigateTo = (screen) =>{
+	navigateTo = (screen:string) =>{
 		this.props.navigation.navigate(screen);
 	}
 
-	setVisible = (value) => {
+	setVisible = (value:boolean) => {
 		this.setState({phoneNumberVerificationModalIsVisible:value});
 	}
 
@@ -52,7 +53,7 @@ export default class Login extends React.Component<LoginProps, LoginState>{
 					<View style={styles.header}>
 						<Text style={[styles.welcomeLabel, styles.label]}>WELCOME</Text>
 						<Icon name='chatbubble-ellipses-outline' size={70} color='white'/>
-						<Text style={[styles.appNameLabel, styles.label]}>BLUE MESSENGER</Text>
+						<Text style={[styles.label]}>BLUE MESSENGER</Text>
 					</View>
 					<View style={styles.form}>
 						<PickerModal 

@@ -4,6 +4,8 @@ import {StyleSheet, Image, View, Text, Dimensions, TouchableOpacity} from 'react
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
+	title:string,
+	contacts:any[]
 }
 
 const  ArchiveItem = (props:Props) =>  {

@@ -11,8 +11,10 @@ type Props = {
 }
 type State = {
 	data:any,
-	pickedUsers:any,
-	usersOrder:any
+	pickedUsers?:any,
+	usersOrder:any,
+	customOrderTypePicked:boolean,
+	screen:any,
 }
 export default class Card extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -47,11 +49,11 @@ export default class Card extends React.Component<Props, State>{
 	componentDidMount() {
 	}
 
-	_navigateTo = (screen) => {
+	_navigateTo = (screen:string) => {
 		this.props.navigation.navigate(screen,{});
 	}
 
-	navigateTo = (screen) => {
+	navigateTo = (screen:string) => {
         this.props.navigation.navigate(screen,{});
     }
 
@@ -72,7 +74,7 @@ export default class Card extends React.Component<Props, State>{
     }
 
 
-	toogleUserInTheOrderList = (user) => {
+	toogleUserInTheOrderList = (user:any) => {
 	}
 	
 
@@ -83,16 +85,20 @@ export default class Card extends React.Component<Props, State>{
 				<View style={styles.header}>
 					<ScrollView 
 						pagingEnabled
-						style={styles.headerScrollView} 
+						//style={styles.headerScrollView} 
 						horizontal={true}
 					 >
-						<View style={styles.cardContainer}>
+						<View 
+							//style={styles.cardContainer}
+						>
 							<View style={styles.card}>
 								<Text style={styles.cardText}>CARD</Text>
 							</View>
 							<Text style={styles.cardName}>Menthe</Text>
 						</View>
-						<View style={styles.cardContainer}>
+						<View 
+							//style={styles.cardContainer}
+							>
 							<View style={styles.card}>
 								<Text style={styles.cardText}>CARD</Text>
 							</View>

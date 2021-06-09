@@ -1,7 +1,6 @@
 import React from 'react';
 import {
 	Text, 
-	TextInput, 
 	View, 
 	TouchableOpacity, 
 	FlatList, 
@@ -16,6 +15,8 @@ type Props = {
 	navigation:any
 }
 type State = {
+	usersOrder?:any[],
+	actions:any,
 }
 export default class Profile extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -53,7 +54,7 @@ export default class Profile extends React.Component<Props, State>{
 	}
 
 
-	_navigateTo = (screen) => {
+	_navigateTo = (screen:any) => {
 		this.props.navigation.navigate(screen,{});
 	}
 

@@ -4,6 +4,7 @@ import {StyleSheet, Image, View, Text, Dimensions, TouchableOpacity} from 'react
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
+	story:any
 }
 
 const  StoryItem = (props:Props) =>  {

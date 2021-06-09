@@ -5,10 +5,12 @@ import TontineFloatButton from '../../components/TontineFloatButton';
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
-	navigation:any
+	navigation:any,
+	route:any,
 }
 type State = {
 	data:any,
+	pickedUsers:any[]
 }
 export default class AddTitleToTontine extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -48,7 +50,7 @@ export default class AddTitleToTontine extends React.Component<Props, State>{
 	}
 
 
-	_navigateTo = (screen) => {
+	_navigateTo = (screen:string) => {
 		this.props.navigation.navigate(screen,{});
 	}
 
@@ -82,7 +84,7 @@ export default class AddTitleToTontine extends React.Component<Props, State>{
 						ItemSeparatorComponent= {
 							() =>	<View style={styles.itemsSeparator} />
 						}
-						renderItem={({index, item}) => <TontineUserItem pickable={false}  navigate={this._navigateToStoryDetail} story={item}/> }
+						renderItem={({index, item}) => <TontineUserItem pickable={false}  story={item}/> }
 						keyExtractor={(item) => item.id}
 					/>
 				</View>

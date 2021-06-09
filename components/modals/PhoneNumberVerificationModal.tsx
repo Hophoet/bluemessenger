@@ -4,7 +4,8 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
 	setVisible:any,
-	visible:boolean
+	visible:boolean,
+	navigateTo:any,
 }
 
 const  PhoneNumberVerificationModal = (props:Props) =>  {

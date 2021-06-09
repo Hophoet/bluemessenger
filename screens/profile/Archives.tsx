@@ -10,6 +10,9 @@ type Props = {
 }
 type State = {
 	data:any,
+	modalVisible:boolean,
+	selectedArchive:any,
+	pickedUsers:any[]
 }
 export default class Archives extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -25,7 +28,7 @@ export default class Archives extends React.Component<Props, State>{
 		this.setState({modalVisible:!this.state.modalVisible});
 	}
 
-	selectArchive = (archive) => {
+	selectArchive = (archive:any) => {
 		this.setState({selectedArchive:archive});
 	}
 
@@ -60,7 +63,7 @@ export default class Archives extends React.Component<Props, State>{
 	}
 
 
-	_navigateTo = (screen) => {
+	_navigateTo = (screen:string) => {
 		this.props.navigation.navigate(screen,{});
 	}
 
@@ -112,7 +115,7 @@ export default class Archives extends React.Component<Props, State>{
 					<ScrollView style={styles.archivesScrollView}>
 						<View style={styles.archivesContainer}>
 					{
-						this.state.data.map(item => {
+						this.state.data.map((item:any) => {
 
 							return (
 								<ArchiveItem 

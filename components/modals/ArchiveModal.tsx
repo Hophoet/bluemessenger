@@ -3,8 +3,9 @@ import {StyleSheet, Modal, ImageBackground, View, TextInput, Text, Dimensions, T
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
-	setVisible:any,
-	visible:boolean
+	setVisible?:any,
+	visible?:boolean,
+	toggleModal:any,
 }
 
 const  PhoneNumberVerificationModal = (props:Props) =>  {

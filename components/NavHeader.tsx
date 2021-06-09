@@ -6,10 +6,14 @@ import Icon from "react-native-vector-icons/Ionicons";
 import {Chat, Story} from '../../navigations/Main';
 
 type Props = {
-	navigation:any
+	navigation?:any,
+	screen:any,
+	navigateTo:any,
 }
 type State = {
 	data:any,
+	screens:any[],
+	selectedScreen:any,
 }
 export default class TontineOverview extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -37,7 +41,7 @@ export default class TontineOverview extends React.Component<Props, State>{
 	navigate = () => {
 	}
 
-	selectScreen = (selectedScreen) => {
+	selectScreen = (selectedScreen:any) => {
 		//this.setState({selectedScreen});
 		if(this.props.navigateTo){
 			if(selectedScreen.label=='Chat'){
