@@ -5,12 +5,14 @@ import TontineFloatButton from '../../components/TontineFloatButton';
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
-	navigation:any
+	navigation:any,
+	route:any
 }
 type State = {
 	data:any,
 	pickedUsers:any,
-	usersOrder:any
+	usersOrder:any,
+	customOrderTypePicked:boolean,
 }
 export default class ParameterTontine extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -70,12 +72,12 @@ export default class ParameterTontine extends React.Component<Props, State>{
 	}
 
 
-	_navigateTo = (screen) => {
+	_navigateTo = (screen:string) => {
 		this.props.navigation.navigate(screen,{});
 	}
 
 
-	toogleUserInTheOrderList = (user) => {
+	toogleUserInTheOrderList = (user:any) => {
 		let usersOrder = [...this.state.usersOrder];
 		let userExists = usersOrder.find(item => item.id == user.id);
 		if(userExists){
@@ -141,7 +143,6 @@ export default class ParameterTontine extends React.Component<Props, State>{
 						renderItem={({index, item}) =>( 
 							<TontineUserItem 
 								pickable={false}  
-								navigate={this._navigateToStoryDetail} 
 								story={item} 
 								step={'parameter'} 
 								toogleUserInTheOrderList={this.toogleUserInTheOrderList}

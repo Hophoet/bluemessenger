@@ -9,6 +9,7 @@ type Props = {
 }
 type State = {
 	data:any,
+	screen:any,
 }
 export default class Stories extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -30,12 +31,12 @@ export default class Stories extends React.Component<Props, State>{
 		this.props.navigation.navigate('StoryDetail',{story:data});
 	 }
 
-	_navigateTo = (screen) => {
+	_navigateTo = (screen:string) => {
 		this.props.navigation.navigate(screen,{});
 	}
 
 
-	navigateTo = (screen) => {
+	navigateTo = (screen:string) => {
 		this.props.navigation.navigate(screen);
 	}
 

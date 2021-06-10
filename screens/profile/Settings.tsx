@@ -10,7 +10,7 @@ type Props = {
 }
 type State = {
 	data:any,
-	pickedUsers:any
+	pickedUsers?:any
 }
 export default class Settings extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -50,7 +50,7 @@ export default class Settings extends React.Component<Props, State>{
 	}
 
 
-	navigate = (screen) => {
+	navigate = (screen:any) => {
 		this.props.navigation.navigate(
 			screen,
 			{}

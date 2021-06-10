@@ -4,6 +4,9 @@ import {StyleSheet, Image, View, Text, Dimensions, TouchableOpacity} from 'react
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
+	selectArchive:any,
+	toggleModal:any,
+	item:any,
 }
 
 const  ArchiveItem = (props:Props) =>  {

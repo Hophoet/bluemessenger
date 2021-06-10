@@ -4,6 +4,8 @@ import {StyleSheet, Image, View, Text, ImageBackground, Dimensions, TouchableOpa
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
+	navigateTo?:any,
+	screen:any,
 }
 
 const  MainHeader = (props:Props) =>  {
@@ -21,7 +23,7 @@ const  MainHeader = (props:Props) =>  {
 						<View style={styles.contentContainer}>
 							<View style={styles.column1}>
 								<Icon name='checkmark-done-circle' color='white' size={50}/>
-								<TouchableOpacity style={styles.iconButton}>
+								<TouchableOpacity >
 									<Icon name='camera' color='white' size={30}/>
 								</TouchableOpacity>
 							</View>
@@ -29,14 +31,14 @@ const  MainHeader = (props:Props) =>  {
 								<Text style={styles.title}>{props.screen.label}</Text>	
 							</View>
 							<View style={styles.column3}>
-								<TouchableOpacity style={styles.iconButton}>
+								<TouchableOpacity >
 									<Icon name='search' color='white' size={35}/>
 								</TouchableOpacity>
 								<TouchableOpacity 
 									onPress={()=>{
 										props.navigateTo('ProfileNav');
 									}}	
-									style={styles.iconButton}>
+								>
 									<Icon name='ellipsis-vertical' size={35} color='white'/>
 								</TouchableOpacity>
 							</View>

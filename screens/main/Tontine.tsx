@@ -8,6 +8,7 @@ type Props = {
 	navigation:any
 }
 type State = {
+	screen:any
 }
 export default class Tontine extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -18,12 +19,11 @@ export default class Tontine extends React.Component<Props, State>{
 		}
 	}
 
-
-	_navigateTo = (screen) => {
+	_navigateTo = (screen:any) => {
 		this.props.navigation.navigate(screen,{});
 	}
 
-	navigateTo = (screen) => {
+	navigateTo = (screen:any) => {
         this.props.navigation.navigate(screen,{});
     }
 

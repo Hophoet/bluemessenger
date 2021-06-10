@@ -3,13 +3,14 @@ import {Text, TextInput, Dimensions, View, TouchableOpacity, FlatList, StyleShee
 import MainHeader from '../../components/MainHeader';
 import Icon from "react-native-vector-icons/Ionicons";
 
-import {Chat, Story} from '../../navigations/Main';
 
 type Props = {
 	navigation:any
 }
 type State = {
 	data:any,
+	screens:any[],
+	selectedScreen:any
 }
 export default class TontineOverview extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -32,12 +33,11 @@ export default class TontineOverview extends React.Component<Props, State>{
 	componentDidMount() {
 	}
 
-
 	
 	navigate = () => {
 	}
 
-	selectScreen = (selectedScreen) => {
+	selectScreen = (selectedScreen:any) => {
 		this.setState({selectedScreen});
 	}
 

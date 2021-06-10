@@ -71,7 +71,7 @@ export default class AddMediaStory extends React.Component<Props, State>{
 						<View style={styles.column2}>	
 							<TouchableOpacity 
 								onPress={this.toggleMedia}
-								style={styles.cameraButon}>
+							>
 								<Icon 	
 									name={(this.state.isCamera)?'camera':'videocam'} 
 									size={40} color='white'/>
