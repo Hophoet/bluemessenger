@@ -4,10 +4,15 @@ import ContactsBox from '../../components/ContactsBox';
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
-	navigation:any
+	navigation:any,
+	route:any,
 }
 type State = {
-	data:any,
+	data?:any,
+	contacts:any,
+	pickedUsers:any[],
+	paymentModalIsVisible:boolean,
+
 }
 export default class Contacts extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -47,7 +52,7 @@ export default class Contacts extends React.Component<Props, State>{
 	}
 
 
-	_navigateTo = (screen) => {
+	_navigateTo = (screen:string) => {
 		this.props.navigation.navigate(screen,{});
 	}
 
@@ -73,7 +78,9 @@ export default class Contacts extends React.Component<Props, State>{
 							<Icon name='search' size={30} color='#1597bb'/>
 						</View>
 					</View>
-					<View style={styles.row2}>
+					<View 
+						//style={styles.row2}
+						>
 						<ContactsBox 
 							title='Confidents'
 							contacts={this.state.contacts}/>	

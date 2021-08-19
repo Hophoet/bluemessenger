@@ -5,10 +5,13 @@ import Icon from "react-native-vector-icons/Ionicons";
 import PaymentModal from '../../components/modals/PaymentModal';
 
 type Props = {
-	navigation:any
+	navigation:any,
+	route:any,
 }
 type State = {
 	data:any,
+	pickedUsers:any[],
+	paymentModalIsVisible:boolean,
 }
 export default class TontineOverview extends React.Component<Props, State>{
 	constructor(props:Props){
@@ -49,7 +52,7 @@ export default class TontineOverview extends React.Component<Props, State>{
 	}
 
 
-	_navigateTo = (screen) => {
+	_navigateTo = (screen:string) => {
 		this.props.navigation.navigate(screen,{});
 	}
 
@@ -61,8 +64,7 @@ export default class TontineOverview extends React.Component<Props, State>{
 		);
 	}
 
-	setPaymentModalIsVisible = (value) => {
-		console.log(value)
+	setPaymentModalIsVisible = (value:boolean) => {
 		this.setState({paymentModalIsVisible:value});
 	}
 

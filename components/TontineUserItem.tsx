@@ -4,6 +4,14 @@ import {StyleSheet, Image, View, Text, Dimensions, TouchableOpacity} from 'react
 import Icon from "react-native-vector-icons/Ionicons";
 
 type Props = {
+	pickable:any,
+	navigate?:any,
+	story:any,
+	toggleUserSet?:any,
+	step?:string,
+	usersOrder?:any,
+	customOrderTypePicked?:any,
+	toogleUserInTheOrderList?:any,
 }
 
 const  StoryItem = (props:Props) =>  {
@@ -18,7 +26,7 @@ const  StoryItem = (props:Props) =>  {
 			}
 		})
 
-		const setUserInOrderList = (user) => {
+		const setUserInOrderList = (user:any) => {
 			if(props.step == 'parameter' && props.customOrderTypePicked){
 				let usersOrder = [...props.usersOrder];
 				let userExists = usersOrder.find(item => item.id == user.id);
@@ -35,6 +43,7 @@ const  StoryItem = (props:Props) =>  {
 			else if (props.step == 'parameter' && !props.customOrderTypePicked){
 				setInOrderList(true);
 				let usersOrder = [...props.usersOrder];
+				//usersOrder = usersOrder.sort((a, b) => 0.5 - Math.random());
 				let userExists = usersOrder.find(item => item.id == user.id);
 				let index = usersOrder.indexOf(userExists)
 				setIndexInOrderList(index+1);

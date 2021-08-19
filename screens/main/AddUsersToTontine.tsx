@@ -20,7 +20,7 @@ export default class Stories extends React.Component<Props, State>{
 		}
 	}
 
-	toggleUserSet = (user) => {
+	toggleUserSet = (user:any) => {
 		let users = [...this.state.pickedUsers];
 		let userExists = users.find(item => item.id == user.id);
 		if(userExists){
@@ -80,7 +80,7 @@ export default class Stories extends React.Component<Props, State>{
 					ItemSeparatorComponent= {
 						() =>	<View style={styles.itemsSeparator} />
 					}
-					renderItem={({index, item}) => <TontineUserItem toggleUserSet={this.toggleUserSet} pickable={true}  navigate={this._navigateToStoryDetail} story={item}/> }
+					renderItem={({index, item}) => <TontineUserItem toggleUserSet={this.toggleUserSet} pickable={true}   story={item}/> }
 					keyExtractor={(item) => item.id}
 				/>
 				{ (this.state.pickedUsers.length)

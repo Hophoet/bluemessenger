@@ -8,7 +8,8 @@ type Props = {
 	navigation:any
 }
 type State = {
-	data:[]
+	data:[],
+	screen:any,
 }
 
 export default class Conversations extends React.Component<Props, State>{
@@ -30,7 +31,7 @@ export default class Conversations extends React.Component<Props, State>{
 
 	}
 
-	navigateTo = (screen) => {
+	navigateTo = (screen:string) => {
 		this.props.navigation.navigate(screen);
 	}
 
